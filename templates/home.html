@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+{% block content %}
+
+<form method="GET" action="/">
+        <input type="text" placeholder="Search" name="q" id="">
+</form>
+
+{% if messages %}
+<ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                {% endfor %}
+</ul>
+{% endif %}
+
+<h1>Blog List</h1>
+
+<a href="{% url 'create' %}"><button>Create Post Here!!</button></a>
+<ol>
+        {% for data in post %}
+        {% if data.publish == 'publish' %}
+        <li><a href="details/{{data.pk}}">{{data.post_title}}</a>
+                <a href="{% url 'details' data.pk %}">{{data.post_title}}</a>
+                {{data.author_email}} {{data.id}}</li>
+        {%endif%}
+        {% endfor %}
+</ol>
+
+{% endblock %}
