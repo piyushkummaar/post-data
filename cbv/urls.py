@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import *
+from cbv.views import Home,TeamView
 from django.views.generic import TemplateView
 
 urlpatterns = [
