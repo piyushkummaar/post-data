@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.views.generic import View,TemplateView,ListView
+from django.views.generic import View,TemplateView
 
 
 class TeamView(View):
@@ -9,7 +9,7 @@ class TeamView(View):
     
 class Home(TemplateView):
     template_name = 'cbv/first_cbv.html'
-    def get_context_data(self,*args,**kwargs):
+    def get_context_data(self, *args, **kwargs):
         context = super(Home,self).get_context_data(**kwargs)
         context['title'] = 'home page'
         return context
